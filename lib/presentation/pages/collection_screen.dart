@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:formula_master/presentation/providers/test_provider.dart';
 import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
-import '../../domain/entities/formula.dart';
-import '../providers/test_provider.dart';
-import '../ui_kit/search_bar.dart';
-import '../ui_kit/subject_filter_chips.dart';
-import '../ui_kit/test_card.dart';
+
 
 class CollectionScreen extends ConsumerWidget {
   const CollectionScreen({super.key});

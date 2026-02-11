@@ -1,0 +1,60 @@
+import 'package:formula_master/domain/entities/formula.dart';
+
+final List<Formula> mockFormulas = [
+  Formula(
+    id: '1',
+    title: 'Второй закон Ньютона',
+    description: 'Сила равна произведению массы на ускорение',
+    latexExpression: r'F = ma',
+    subject: Subject.physics,
+    difficulty: Difficulty.easy,
+  ),
+  Formula(
+    id: '2',
+    title: 'Теорема Пифагора',
+    description: 'В прямоугольном треугольнике квадрат гипотенузы равен сумме квадратов катетов',
+    latexExpression: r'a^2 + b^2 = c^2',
+    subject: Subject.mathematics,
+    difficulty: Difficulty.easy,
+  ),
+  Formula(
+    id: '3',
+    title: 'Квадратное уравнение',
+    description: 'Решение квадратного уравнения вида ax² + bx + c = 0',
+    latexExpression: r'x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}',
+    subject: Subject.mathematics,
+    difficulty: Difficulty.medium,
+  ),
+  Formula(
+    id: '4',
+    title: 'Закон всемирного тяготения',
+    description: 'Сила гравитационного притяжения между двумя телами',
+    latexExpression: r'F = G\frac{m_1 m_2}{r^2}',
+    subject: Subject.physics,
+    difficulty: Difficulty.medium,
+  ),
+  Formula(
+    id: '5',
+    title: 'Энергия фотона',
+    description: 'Энергия кванта электромагнитного излучения',
+    latexExpression: r'E = h\nu',
+    subject: Subject.physics,
+    difficulty: Difficulty.hard,
+  ),
+  Formula(
+    id: '6',
+    title: 'Закон Ома',
+    description: 'Сила тока в участке цепи прямо пропорциональна напряжению и обратно пропорциональна сопротивлению',
+    latexExpression: r'I = \frac{U}{R}',
+    subject: Subject.physics,
+    difficulty: Difficulty.easy,
+  ),
+  Formula(
+    id: '7',
+    title: 'Формула Эйнштейна',
+    description: 'Эквивалентность массы и энергии',
+    latexExpression: r'E = mc^2',
+    subject: Subject.physics,
+    difficulty: Difficulty.medium,
+  ),
+];

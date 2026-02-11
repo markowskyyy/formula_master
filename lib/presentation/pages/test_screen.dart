@@ -253,12 +253,12 @@ class _TestScreenState extends ConsumerState<TestScreen> {
       context: context,
       barrierDismissible: false,
       builder: (context) => ResultDialog(
-        correctCount: correctCount,  // ← передаем сразу
-        totalCount: totalCount,      // ← без провайдера
+        correctCount: correctCount,
+        totalCount: totalCount,
         onClose: () {
           ref.read(testViewModelProvider.notifier).resetSession();
-          Navigator.pop(context); // закрываем диалог
-          Navigator.pop(context); // возвращаемся на collection_screen
+          Navigator.pop(context);
+          Navigator.pop(context);
         },
       ),
     );

@@ -20,14 +20,6 @@ class CatalogScreen extends ConsumerWidget {
           preferredSize: const Size.fromHeight(44),
           child: Column(
             children: [
-              // SearchBar(
-              //   onChanged: (value) {
-              //     ref.read(formulaSearchQueryProvider.notifier).state = value;
-              //   },
-              //   onTap: () {
-              //     ref.read(formulaSearchQueryProvider.notifier).state = '';
-              //   },
-              // ),
               SubjectFilterChips(
                 selectedSubject: filter,
                 onSubjectSelected: (subject) {

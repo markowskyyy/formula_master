@@ -27,7 +27,6 @@ class UserProgressNotifier extends StateNotifier<UserProgress> {
       if (progressJson != null) {
         final Map<String, dynamic> json = jsonDecode(progressJson);
 
-        // Восстанавливаем testResults
         final Map<String, TestResult> testResults = {};
         final resultsJson = json['testResults'] as Map<String, dynamic>? ?? {};
 
@@ -60,7 +59,6 @@ class UserProgressNotifier extends StateNotifier<UserProgress> {
     try {
       final prefs = await SharedPreferences.getInstance();
 
-      // Преобразуем testResults в JSON
       final Map<String, dynamic> resultsJson = {};
       state.testResults.forEach((key, result) {
         resultsJson[key] = {
@@ -92,16 +90,12 @@ class UserProgressNotifier extends StateNotifier<UserProgress> {
     final updatedResults = Map<String, TestResult>.from(state.testResults);
     updatedResults[result.testId] = result;
 
-    // Пересчитываем общие баллы
     final totalPoints = updatedResults.values.fold<int>(
-      0,
-          (sum, r) => sum + r.pointsEarned,
+      0, (sum, r) => sum + r.pointsEarned,
     );
 
-    // Пересчитываем средний балл
     final totalScore = updatedResults.values.fold<double>(
-      0,
-          (sum, r) => sum + r.scorePercentage,
+      0, (sum, r) => sum + r.scorePercentage,
     );
     final averageScore = updatedResults.isEmpty ? 0 : totalScore / updatedResults.length;
 

@@ -16,6 +16,21 @@ class TestResult {
   });
 }
 
+class UserProgress {
+  final int completedTests;
+  final double averageScore;
+  final int totalPoints;
+  final Map<String, TestResult> testResults;
+  final DateTime lastActivity;
+
+  UserProgress({
+    required this.completedTests,
+    required this.averageScore,
+    required this.totalPoints,
+    required this.testResults,
+    required this.lastActivity,
+  });
+}
 class QuizResult {
   final String quizId;
   final bool isCorrect;
@@ -30,32 +45,17 @@ class QuizResult {
   });
 }
 
-class UserProgress {
-  final int totalPoints;
-  final int weeklyPoints;
-  final double averageScore;
-  final double monthlyScoreIncrease;
-  final int rank;
-  final int rankChange;
-  final int currentStreak;
-  final int bestStreak;
-  final int completedTests;
-  final Map<String, TestResult> testResults;
-  final Map<String, QuizResult> quizResults;
-  final DateTime lastActivity;
 
-  UserProgress({
-    required this.totalPoints,
-    required this.weeklyPoints,
-    required this.averageScore,
-    required this.monthlyScoreIncrease,
-    required this.rank,
-    required this.rankChange,
-    required this.currentStreak,
-    required this.bestStreak,
-    required this.completedTests,
-    required this.testResults,
-    required this.quizResults,
-    required this.lastActivity,
-  });
-}
+// class UserProgress {
+//   final int completedTests;
+//   final double averageScore;
+//   final Map<String, TestResult> testResults;
+//   final DateTime lastActivity;
+//
+//   UserProgress({
+//     required this.completedTests,
+//     required this.averageScore,
+//     required this.testResults,
+//     required this.lastActivity,
+//   });
+// }

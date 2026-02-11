@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formula_master/presentation/providers/formula_provider.dart';
 import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
 
-
 class CatalogScreen extends ConsumerWidget {
   const CatalogScreen({super.key});
 

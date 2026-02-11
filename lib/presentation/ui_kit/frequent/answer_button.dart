@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 
 class AnswerButton extends StatelessWidget {
   final String text;
@@ -20,22 +21,22 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color backgroundColor = Colors.white;
-    Color borderColor = Colors.grey[300]!;
-    Color textColor = Colors.black87;
+    Color backgroundColor = AppColors.textFieldBackground;
+    Color borderColor = AppColors.line;
+    Color textColor = Colors.white;
 
     if (isCorrect == true) {
-      backgroundColor = Colors.green[50]!;
+      backgroundColor = AppColors.textFieldBackground;
       borderColor = Colors.green;
-      textColor = Colors.green[900]!;
+      textColor = Colors.green;
     } else if (isWrong) {
-      backgroundColor = Colors.red[50]!;
+      backgroundColor = AppColors.textFieldBackground;
       borderColor = Colors.red;
-      textColor = Colors.red[900]!;
+      textColor = Colors.red;
     } else if (isSelected) {
-      backgroundColor = Colors.blue[50]!;
+      backgroundColor = AppColors.textFieldBackground;
       borderColor = Colors.blue;
-      textColor = Colors.blue[900]!;
+      textColor = AppColors.blue;
     }
 
     return GestureDetector(
@@ -57,7 +58,7 @@ class AnswerButton extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: isSelected || isCorrect == true || isWrong
                     ? borderColor
-                    : Colors.grey[200],
+                    : AppColors.line,
               ),
               child: Center(
                 child: Text(
@@ -65,7 +66,7 @@ class AnswerButton extends StatelessWidget {
                   style: TextStyle(
                     color: isSelected || isCorrect == true || isWrong
                         ? Colors.white
-                        : Colors.grey[600],
+                        : Colors.grey[100],
                     fontWeight: FontWeight.w600,
                   ),
                 ),

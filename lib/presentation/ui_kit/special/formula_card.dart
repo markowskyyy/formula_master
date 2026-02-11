@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/domain/entities/formula.dart';
+import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
 
 
 class FormulaCard extends StatelessWidget {
@@ -11,9 +13,10 @@ class FormulaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
+      color: AppColors.background,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Colors.grey[300]!),
+        side: BorderSide(color: AppColors.line),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -21,6 +24,7 @@ class FormulaCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: Text(
@@ -28,18 +32,20 @@ class FormulaCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white
                     ),
                   ),
                 ),
+                const Gap(12),
                 SubjectTag(subject: formula.subject),
               ],
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
             Text(
               formula.description,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey[600],
+                color: Colors.grey[400],
               ),
             ),
             const SizedBox(height: 12),
@@ -47,10 +53,11 @@ class FormulaCard extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.grey[50],
+                color: AppColors.textFieldBackground,
                 borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: AppColors.lineLight, width: 1)
               ),
-              child: LatexRenderer(expression: formula.latexExpression),
+              child: LatexRenderer(expression: formula.latexExpression, black: false),
             ),
           ],
         ),
@@ -111,18 +118,20 @@ class SubjectTag extends StatelessWidget {
 
 class LatexRenderer extends StatelessWidget {
   final String expression;
+  final bool black;
 
-  const LatexRenderer({super.key, required this.expression});
+  const LatexRenderer({super.key, required this.expression, required this.black});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
         expression,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 20,
           fontFamily: 'monospace',
           fontWeight: FontWeight.w500,
+          color: black ? Colors.black : Colors.white
         ),
         textAlign: TextAlign.center,
       ),

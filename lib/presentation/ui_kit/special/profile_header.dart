@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key});
@@ -12,7 +13,7 @@ class ProfileHeader extends StatelessWidget {
           height: 70,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.blue[400]!, Colors.blue[600]!],
+              colors: [Colors.blue[400]!, Colors.blue[900]!],
             ),
             shape: BoxShape.circle,
           ),
@@ -24,23 +25,24 @@ class ProfileHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 20),
-        const Expanded(
+        Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Formula Master',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
+                  color: AppColors.white
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 'Учите формулы с удовольствием',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.grey,
+                  color: Colors.grey[400]!,
                 ),
               ),
             ],

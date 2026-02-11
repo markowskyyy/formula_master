@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/presentation/providers/progress_provider.dart';
 
 
@@ -13,19 +14,19 @@ class ResetProgressButton extends ConsumerWidget {
       child: ElevatedButton(
         onPressed: () => _showResetDialog(context, ref),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.red[50],
-          foregroundColor: Colors.red[700],
+          backgroundColor: AppColors.blue,
+          foregroundColor: AppColors.white,
           elevation: 0,
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
-            side: BorderSide(color: Colors.red[100]!),
+            // side: BorderSide(color: Colors.red[100]!),
           ),
         ),
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.delete_sweep),
+            Icon(Icons.delete_sweep, color: Colors.white),
             SizedBox(width: 8),
             Text(
               'Очистить историю',

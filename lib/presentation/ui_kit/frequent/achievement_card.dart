@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 
 class AchievementCard extends StatelessWidget {
   final String title;
@@ -26,15 +27,15 @@ class AchievementCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.textFieldBackground.withAlpha(100),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: _isUnlocked ? color.withOpacity(0.3) : Colors.grey[200]!,
+          color: _isUnlocked ? color.withOpacity(0.3) : AppColors.lineLight,
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.05),
+            color: Colors.white.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -45,7 +46,7 @@ class AchievementCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: _isUnlocked ? color.withOpacity(0.1) : Colors.grey[100],
+              color: _isUnlocked ? color.withOpacity(0.1) : AppColors.white.withAlpha(40),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(
@@ -65,8 +66,8 @@ class AchievementCard extends StatelessWidget {
                       title,
                       style: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: _isUnlocked ? Colors.black : Colors.grey[600],
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.white,
                       ),
                     ),
                     if (_isUnlocked) ...[
@@ -84,7 +85,7 @@ class AchievementCard extends StatelessWidget {
                   description,
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.grey[600],
+                    color: AppColors.white,
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -94,7 +95,7 @@ class AchievementCard extends StatelessWidget {
                     value: _progress,
                     backgroundColor: Colors.grey[200],
                     valueColor: AlwaysStoppedAnimation<Color>(
-                      _isUnlocked ? color : Colors.grey[400]!,
+                      _isUnlocked ? color : AppColors.blue,
                     ),
                     minHeight: 6,
                   ),

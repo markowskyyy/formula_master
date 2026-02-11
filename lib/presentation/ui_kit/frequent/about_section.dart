@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
@@ -8,12 +9,12 @@ class AboutSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.background,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.grey[200]!),
+        border: Border.all(color: AppColors.line),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.05),
+            color: Colors.white.withOpacity(0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -27,7 +28,7 @@ class AboutSection extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.blue[50],
+                  color: Colors.blue[100],
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(
@@ -42,6 +43,7 @@ class AboutSection extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
             ],
@@ -52,7 +54,7 @@ class AboutSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 15,
               height: 1.5,
-              color: Colors.black87,
+              color: Colors.white,
             ),
           ),
         ],
@@ -76,7 +78,7 @@ class VersionInfo extends StatelessWidget {
         'Formula Master v$version',
         style: TextStyle(
           fontSize: 14,
-          color: Colors.grey[500],
+          color: Colors.grey[200],
         ),
       ),
     );

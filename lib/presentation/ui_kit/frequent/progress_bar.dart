@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 
 class ProgressBar extends StatelessWidget {
   final int current;
@@ -16,7 +17,7 @@ class ProgressBar extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-      color: Colors.white,
+      color: AppColors.background,
       child: Column(
         children: [
           Row(
@@ -27,13 +28,14 @@ class ProgressBar extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
+                  color: Colors.white
                 ),
               ),
               Text(
                 '${(progress * 100).round()}%',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Theme.of(context).primaryColor,
+                  color: AppColors.blue,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -44,7 +46,7 @@ class ProgressBar extends StatelessWidget {
             value: progress,
             backgroundColor: Colors.grey[200],
             valueColor: AlwaysStoppedAnimation<Color>(
-              Theme.of(context).primaryColor,
+              AppColors.blue
             ),
             minHeight: 6,
             borderRadius: BorderRadius.circular(3),

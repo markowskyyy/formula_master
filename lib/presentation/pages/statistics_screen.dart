@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/presentation/providers/progress_provider.dart';
 import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
 
@@ -13,7 +14,15 @@ class StatisticsScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Достижения'),
+        title: Text('Личный прогресс', style: AppTextStyles.title),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(4),
+          child: Column(
+            children: [
+              Divider(height: 1, color: AppColors.line)
+            ],
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -22,19 +31,13 @@ class StatisticsScreen extends ConsumerWidget {
           children: [
             const SizedBox(height: 8),
             Text(
-              '${progress.completedTests} тестов пройдено',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              'Тестов пройдено: ${progress.completedTests}',
+              style: AppTextStyles.headline
             ),
             const SizedBox(height: 24),
             const Text(
-              'Очивки',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              'Очивки:',
+                style: AppTextStyles.title
             ),
             const SizedBox(height: 16),
             AchievementCard(
@@ -43,9 +46,9 @@ class StatisticsScreen extends ConsumerWidget {
               currentValue: completedTests,
               targetValue: 3,
               icon: Icons.school,
-              color: Colors.brown,
+              color: Colors.green,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             AchievementCard(
               title: 'Любознательный',
               description: 'Пройдите 10 тестов',
@@ -54,7 +57,7 @@ class StatisticsScreen extends ConsumerWidget {
               icon: Icons.menu_book,
               color: Colors.blue,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             AchievementCard(
               title: 'Знаток формул',
               description: 'Пройдите 15 тестов',

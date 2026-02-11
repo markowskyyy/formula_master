@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'core/router/app_router.dart';
 
 void main() {
@@ -24,10 +25,10 @@ class FormulaMasterApp extends ConsumerWidget {
         appBarTheme: const AppBarTheme(
           elevation: 0,
           centerTitle: false,
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.background,
           foregroundColor: Colors.black,
         ),
-        scaffoldBackgroundColor: Colors.grey[50],
+        scaffoldBackgroundColor: AppColors.background,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             elevation: 0,

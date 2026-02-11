@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/presentation/providers/progress_provider.dart';
 import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
 
@@ -9,11 +10,11 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final progress = ref.watch(userProgressProvider);
-    final achievementsCount = ref.watch(unlockedAchievementsCountProvider);
+    final achievementsCount = ref.read(userProgressProvider.notifier).getUnlockedAchievementsCount();
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Профиль'),
+        title: Text('Личный прогресс', style: AppTextStyles.title),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),

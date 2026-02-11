@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/domain/entities/formula.dart';
 
 
@@ -15,7 +16,7 @@ class SubjectFilterChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 44,
+      height: 36,
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -67,14 +68,14 @@ class _FilterChip extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? Theme.of(context).primaryColor : Colors.grey[200],
-          borderRadius: BorderRadius.circular(20),
+          color: isSelected ? AppColors.blue : AppColors.textFieldBackground,
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Center(
           child: Text(
             label,
             style: TextStyle(
-              color: isSelected ? Colors.white : Colors.black87,
+              color: isSelected ? AppColors.white : AppColors.grey,
               fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
             ),
           ),

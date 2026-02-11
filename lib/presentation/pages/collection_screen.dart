@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/presentation/providers/test_provider.dart';
 import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
 
@@ -13,26 +14,19 @@ class CollectionScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Тесты'),
+        title: Text('Тесты', style: AppTextStyles.title),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(120),
+          preferredSize: const Size.fromHeight(44),
           child: Column(
             children: [
-              SearchBar(
-                onChanged: (value) {
-                  ref.read(testSearchQueryProvider.notifier).state = value;
-                },
-                // onClear: () {
-                //   ref.read(testSearchQueryProvider.notifier).state = '';
-                // },
-                hintText: 'Поиск тестов...',
-              ),
               SubjectFilterChips(
                 selectedSubject: filter,
                 onSubjectSelected: (subject) {
                   ref.read(testFilterProvider.notifier).state = subject;
                 },
               ),
+              const Gap(16),
+              Divider(height: 1, color: AppColors.line)
             ],
           ),
         ),

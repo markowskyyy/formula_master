@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/presentation/pages/catalog_screen.dart';
 import 'package:formula_master/presentation/pages/collection_screen.dart';
 import 'package:formula_master/presentation/pages/profile_screen.dart';
@@ -126,9 +127,9 @@ class ScaffoldWithNavBar extends ConsumerWidget {
           );
         },
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Theme.of(context).primaryColor,
+        selectedItemColor: AppColors.blue,
         unselectedItemColor: Colors.grey[400],
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.background,
         elevation: 8,
         items: const [
           BottomNavigationBarItem(

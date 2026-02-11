@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
 
 class QuestionCard extends StatelessWidget {
@@ -17,8 +18,11 @@ class QuestionCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.blue[50],
+        color: AppColors.background,
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: AppColors.line,
+        )
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,20 +32,24 @@ class QuestionCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
+              color: Colors.white
             ),
           ),
-          if (latexExpression.isNotEmpty) ...[
-            const SizedBox(height: 16),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: LatexRenderer(expression: latexExpression),
-            ),
-          ],
+          // if (latexExpression.isNotEmpty) ...[
+          //   const SizedBox(height: 16),
+          //   Container(
+          //     width: double.infinity,
+          //     padding: const EdgeInsets.all(16),
+          //     decoration: BoxDecoration(
+          //       color: AppColors.textFieldBackground,
+          //       borderRadius: BorderRadius.circular(12),
+          //         border: Border.all(
+          //           color: AppColors.lineLight,
+          //         )
+          //     ),
+          //     child: LatexRenderer(expression: latexExpression, black: false),
+          //   ),
+          // ],
         ],
       ),
     );

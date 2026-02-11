@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:formula_master/core/consts/design.dart';
 import 'package:formula_master/domain/entities/test.dart';
-import 'package:formula_master/presentation/ui_kit/special/difficulty_badge.dart';
 import 'package:formula_master/presentation/ui_kit/ui_kit.dart';
+import 'package:go_router/go_router.dart';
 
 
 class TestCard extends StatelessWidget {
@@ -13,9 +14,10 @@ class TestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
+      color: AppColors.background,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Colors.grey[300]!),
+        side: BorderSide(color: AppColors.line),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -29,7 +31,8 @@ class TestCard extends StatelessWidget {
                     test.title,
                     style: const TextStyle(
                       fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.white,
                     ),
                   ),
                 ),
@@ -40,10 +43,10 @@ class TestCard extends StatelessWidget {
                       color: Colors.grey[200],
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.lock,
                       size: 16,
-                      color: Colors.grey,
+                      color: Colors.grey[800],
                     ),
                   ),
                 ],
@@ -53,9 +56,10 @@ class TestCard extends StatelessWidget {
             Text(
               test.description,
               style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[600],
-              ),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey[400]
+              )
             ),
             const SizedBox(height: 12),
             Row(
@@ -63,36 +67,33 @@ class TestCard extends StatelessWidget {
                 SubjectTag(subject: test.subject),
                 const SizedBox(width: 8),
                 DifficultyBadge(difficulty: test.difficulty),
+                const SizedBox(width: 12),
+                Icon(
+                  Icons.help_outline,
+                  size: 16,
+                  color: AppColors.white,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  '${test.questionCount}',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppColors.white,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.help_outline,
-                      size: 16,
-                      color: Colors.grey[600],
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '${test.questionCount} вопросов',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                  ],
-                ),
                 if (!test.isLocked)
                   ElevatedButton(
                     onPressed: () {
-
+                      context.pushNamed('test', pathParameters: {'testId': test.id});
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).primaryColor,
+                      backgroundColor: AppColors.lineLight,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
